@@ -1,43 +1,66 @@
 (function () {
-  const purposeRadios = document.querySelectorAll('input[name="purpose"]');
-  const logoTypeRadios = document.querySelectorAll('input[name="logo_type"]');
-  const tracePrecisionRadios = document.querySelectorAll('input[name="trace_precision"]');
-
-  const traceFields = document.getElementById('trace-fields');
+  // === Elements ===
+  const purposeRadios        = document.querySelectorAll('input[name="purpose"]');
+  const traceFields          = document.getElementById('trace-fields');
   const logoStructureSection = document.getElementById('logo-structure-section');
-  const budgetDisplay = document.getElementById('budget-display');
+  const purposeOtherField    = document.getElementById('purpose-other-field');
 
+  const logoTypeRadios       = document.querySelectorAll('input[name="logo_type"]');
+  const tracePrecisionRadios = document.querySelectorAll('input[name="trace_precision"]');
+  const budgetDisplay        = document.getElementById('budget-display');
+
+  const usageOther           = document.getElementById('usage-other');
+  const usageOtherField      = document.getElementById('usage-other-field');
+
+  const brandColorRadios     = document.querySelectorAll('input[name="brand_color"]');
+  const colorPickerFields    = document.getElementById('color-picker-fields');
+  const colorPrefFields      = document.getElementById('color-preference-fields');
+
+  // === Budget tables ===
   const budgetStandard = {
-    logotype:        '参考：80,000円〜',
-    symbol:          '参考：100,000円〜',
-    symbol_logotype: '参考：150,000円〜',
-    corporate:       '参考：300,000円〜',
-    undecided:       '参考：要相談',
+    logotype:        '80,000円〜',
+    symbol:          '100,000円〜',
+    symbol_logotype: '150,000円〜',
+    corporate:       '300,000円〜',
+    undecided:       '要相談',
   };
 
   const budgetTrace = {
-    simple:  '参考：50,000円〜',
-    precise: '参考：80,000円〜',
-    consult: '参考：要相談',
+    simple:  '50,000円〜',
+    precise: '80,000円〜',
+    consult: '要相談',
   };
 
+  // === Helpers ===
   function getChecked(name) {
-    const el = document.querySelector(`input[name="${name}"]:checked`);
+    const el = document.querySelector('input[name="' + name + '"]:checked');
     return el ? el.value : null;
   }
 
-  function updateVisibility() {
-    const purpose = getChecked('purpose');
-    const isTrace = purpose === 'trace';
+  function setBudgetAmount(text) {
+    budgetDisplay.innerHTML = '<span class="budget-amount">参考：' + text + '</span>';
+  }
+
+  function setBudgetPlaceholder(text) {
+    budgetDisplay.innerHTML = '<span class="budget-placeholder">' + text + '</span>';
+  }
+
+  // === Update: 制作の目的 ===
+  function updatePurpose() {
+    var purpose = getChecked('purpose');
+    var isTrace = purpose === 'trace';
+    var isOther = purpose === 'other';
 
     traceFields.classList.toggle('hidden', !isTrace);
     logoStructureSection.classList.toggle('hidden', isTrace);
+    purposeOtherField.classList.toggle('hidden', !isOther);
 
     updateBudget();
   }
 
+  // === Update: 予算 ===
   function updateBudget() {
-    const purpose = getChecked('purpose');
+    var purpose = getChecked('purpose');
 
     if (!purpose) {
       setBudgetPlaceholder('制作の目的とロゴの構成を選択すると参考金額が表示されます');
@@ -45,56 +68,76 @@
     }
 
     if (purpose === 'trace') {
-      const precision = getChecked('trace_precision');
+      var precision = getChecked('trace_precision');
       if (!precision) {
         setBudgetPlaceholder('トレースの精度希望を選択すると参考金額が表示されます');
-        return;
+      } else {
+        setBudgetAmount(budgetTrace[precision]);
       }
-      setBudgetAmount(budgetTrace[precision]);
-    } else {
-      const logoType = getChecked('logo_type');
+      return;
+    }
+
+    if (purpose === 'new' || purpose === 'renewal' || purpose === 'expansion') {
+      var logoType = getChecked('logo_type');
       if (!logoType) {
         setBudgetPlaceholder('ロゴの構成を選択すると参考金額が表示されます');
-        return;
+      } else {
+        setBudgetAmount(budgetStandard[logoType]);
       }
-      setBudgetAmount(budgetStandard[logoType]);
+      return;
     }
+
+    // その他
+    setBudgetPlaceholder('要相談');
   }
 
-  function setBudgetAmount(text) {
-    budgetDisplay.innerHTML = `<span class="budget-amount">${text}</span>`;
+  // === Update: ブランドカラー ===
+  function updateBrandColor() {
+    var value = getChecked('brand_color');
+    colorPickerFields.classList.toggle('hidden', value !== 'has_color');
+    colorPrefFields.classList.toggle('hidden', value !== 'no_color');
   }
 
-  function setBudgetPlaceholder(text) {
-    budgetDisplay.innerHTML = `<span class="budget-placeholder">${text}</span>`;
-  }
-
-  purposeRadios.forEach(function (radio) {
-    radio.addEventListener('change', updateVisibility);
+  // === Color hex value display ===
+  document.querySelectorAll('input[type="color"]').forEach(function (input) {
+    var valueSpan = input.parentElement.querySelector('.color-value');
+    if (!valueSpan) return;
+    valueSpan.textContent = input.value.toUpperCase();
+    input.addEventListener('input', function () {
+      valueSpan.textContent = this.value.toUpperCase();
+    });
   });
 
-  logoTypeRadios.forEach(function (radio) {
-    radio.addEventListener('change', updateBudget);
-  });
-
-  tracePrecisionRadios.forEach(function (radio) {
-    radio.addEventListener('change', updateBudget);
-  });
-
-  // 「その他」チェックボックスの追加テキスト欄制御
-  const usageOther = document.getElementById('usage-other');
-  const usageOtherField = document.getElementById('usage-other-field');
-
-  usageOther.addEventListener('change', function () {
-    usageOtherField.classList.toggle('hidden', !this.checked);
-  });
-
-  // 対面日のデフォルトを今日に設定
-  const meetingDate = document.getElementById('meeting_date');
+  // === 対面日: デフォルト今日 ===
+  var meetingDate = document.getElementById('meeting_date');
   if (meetingDate && !meetingDate.value) {
-    const today = new Date().toISOString().split('T')[0];
-    meetingDate.value = today;
+    meetingDate.value = new Date().toISOString().split('T')[0];
   }
 
-  updateVisibility();
+  // === Event listeners ===
+  purposeRadios.forEach(function (r) {
+    r.addEventListener('change', updatePurpose);
+  });
+
+  logoTypeRadios.forEach(function (r) {
+    r.addEventListener('change', updateBudget);
+  });
+
+  tracePrecisionRadios.forEach(function (r) {
+    r.addEventListener('change', updateBudget);
+  });
+
+  if (usageOther) {
+    usageOther.addEventListener('change', function () {
+      usageOtherField.classList.toggle('hidden', !this.checked);
+    });
+  }
+
+  brandColorRadios.forEach(function (r) {
+    r.addEventListener('change', updateBrandColor);
+  });
+
+  // === Initial state ===
+  updatePurpose();
+  updateBrandColor();
 })();
