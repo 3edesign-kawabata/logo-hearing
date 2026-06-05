@@ -159,7 +159,12 @@ textarea::placeholder {
 textarea {
   resize: vertical;
   line-height: 1.65;
-  min-height: 120px;
+  min-height: 80px;
+}
+
+.usage-other-field {
+  margin-top: 12px;
+  padding-left: 4px;
 }
 
 /* ===========================
@@ -292,7 +297,7 @@ textarea {
 }
 
 .budget-amount {
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--color-text);
   letter-spacing: 0.02em;

@@ -10,7 +10,6 @@
   <header class="site-header">
     <div class="header-inner">
       <h1>ロゴデザイン ヒアリングシート</h1>
-      <span class="brand">3e design</span>
     </div>
   </header>
 
@@ -22,15 +21,15 @@
         <h2 class="section-title">基本情報</h2>
         <div class="field">
           <label for="company">会社名・屋号・店名</label>
-          <input type="text" id="company" name="company">
+          <textarea id="company" name="company"></textarea>
         </div>
         <div class="field">
           <label for="contact">担当者名</label>
-          <input type="text" id="contact" name="contact">
+          <textarea id="contact" name="contact"></textarea>
         </div>
         <div class="field">
           <label for="business">業種・事業内容</label>
-          <input type="text" id="business" name="business">
+          <textarea id="business" name="business"></textarea>
         </div>
         <div class="field field--short">
           <label for="meeting_date">対面日</label>
@@ -159,9 +158,12 @@
             <span>印刷物</span>
           </label>
           <label class="checkbox-label">
-            <input type="checkbox" name="usage" value="other">
+            <input type="checkbox" name="usage" value="other" id="usage-other">
             <span>その他</span>
           </label>
+        </div>
+        <div id="usage-other-field" class="field usage-other-field hidden">
+          <textarea name="usage_other_text" placeholder="具体的な用途を入力してください"></textarea>
         </div>
       </section>
 
@@ -169,7 +171,7 @@
       <section class="form-section">
         <h2 class="section-title">納期の希望</h2>
         <div class="field field--short">
-          <input type="text" name="deadline" placeholder="例：2026年8月末">
+          <textarea name="deadline" placeholder="例：2026年8月末"></textarea>
         </div>
       </section>
 
@@ -178,23 +180,23 @@
         <h2 class="section-title">デザインの方向性</h2>
         <div class="field">
           <label for="color_preference">好きな色・避けたい色</label>
-          <input type="text" id="color_preference" name="color_preference">
+          <textarea id="color_preference" name="color_preference"></textarea>
         </div>
         <div class="field">
           <label for="image_words">イメージワード</label>
-          <input type="text" id="image_words" name="image_words" placeholder="例：シンプル、信頼感、やわらかい">
+          <textarea id="image_words" name="image_words" placeholder="例：シンプル、信頼感、やわらかい"></textarea>
         </div>
         <div class="field">
           <label for="reference">参考にしたいロゴや雰囲気（URL・フリーテキスト）</label>
-          <input type="text" id="reference" name="reference">
+          <textarea id="reference" name="reference"></textarea>
         </div>
         <div class="field">
           <label for="competitor">競合・同業他社のロゴ（似てほしくない基準として）</label>
-          <input type="text" id="competitor" name="competitor">
+          <textarea id="competitor" name="competitor"></textarea>
         </div>
         <div class="field">
           <label for="avoid_design">避けたいデザインの傾向</label>
-          <input type="text" id="avoid_design" name="avoid_design">
+          <textarea id="avoid_design" name="avoid_design"></textarea>
         </div>
       </section>
 
@@ -203,19 +205,19 @@
         <h2 class="section-title">ターゲット・想い</h2>
         <div class="field">
           <label for="target">誰に届けたいか</label>
-          <input type="text" id="target" name="target">
+          <textarea id="target" name="target"></textarea>
         </div>
         <div class="field">
           <label for="impression">ロゴを見た人にどう感じてほしいか</label>
-          <input type="text" id="impression" name="impression" placeholder="例：信頼感、親しみやすさ、高級感">
+          <textarea id="impression" name="impression" placeholder="例：信頼感、親しみやすさ、高級感"></textarea>
         </div>
         <div class="field">
           <label for="values">大切にしていること・伝えたいこと</label>
-          <input type="text" id="values" name="values">
+          <textarea id="values" name="values"></textarea>
         </div>
         <div class="field">
           <label for="meaning">ロゴに込めたい意味やこだわり</label>
-          <input type="text" id="meaning" name="meaning">
+          <textarea id="meaning" name="meaning"></textarea>
         </div>
       </section>
 

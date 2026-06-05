@@ -81,5 +81,13 @@
     radio.addEventListener('change', updateBudget);
   });
 
+  // 「その他」チェックボックスの追加テキスト欄制御
+  const usageOther = document.getElementById('usage-other');
+  const usageOtherField = document.getElementById('usage-other-field');
+
+  usageOther.addEventListener('change', function () {
+    usageOtherField.classList.toggle('hidden', !this.checked);
+  });
+
   updateVisibility();
 })();
