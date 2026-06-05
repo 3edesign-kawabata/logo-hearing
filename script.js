@@ -7,6 +7,7 @@
 
   const logoTypeRadios       = document.querySelectorAll('input[name="logo_type"]');
   const tracePrecisionRadios = document.querySelectorAll('input[name="trace_precision"]');
+  const specDocRadios        = document.querySelectorAll('input[name="spec_doc"]');
   const budgetDisplay        = document.getElementById('budget-display');
 
   const usageOther           = document.getElementById('usage-other');
@@ -43,6 +44,15 @@
 
   function setBudgetPlaceholder(text) {
     budgetDisplay.innerHTML = '<span class="budget-placeholder">' + text + '</span>';
+  }
+
+  // 仕様書「必要」選択時に50,000円を加算する
+  function applySpecDoc(baseStr) {
+    if (baseStr === '要相談') return '要相談';
+    var specDoc = getChecked('spec_doc');
+    if (specDoc !== 'needed') return baseStr;
+    var num = parseInt(baseStr.replace(/,/g, ''), 10);
+    return (num + 50000).toLocaleString() + '円〜';
   }
 
   // === Update: 制作の目的 ===
@@ -82,7 +92,7 @@
       if (!logoType) {
         setBudgetPlaceholder('ロゴの構成を選択すると参考金額が表示されます');
       } else {
-        setBudgetAmount(budgetStandard[logoType]);
+        setBudgetAmount(applySpecDoc(budgetStandard[logoType]));
       }
       return;
     }
@@ -124,6 +134,10 @@
   });
 
   tracePrecisionRadios.forEach(function (r) {
+    r.addEventListener('change', updateBudget);
+  });
+
+  specDocRadios.forEach(function (r) {
     r.addEventListener('change', updateBudget);
   });
 
