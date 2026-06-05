@@ -210,7 +210,12 @@
       <section class="form-section">
         <h2 class="section-title">納期の希望</h2>
         <div class="field field--short">
-          <textarea name="deadline" rows="1" placeholder="例：2026年8月末"></textarea>
+          <label for="deadline_date">希望日</label>
+          <input type="date" id="deadline_date" name="deadline_date">
+        </div>
+        <div class="field">
+          <label for="deadline_note">補足・備考</label>
+          <textarea id="deadline_note" name="deadline_note" rows="1" placeholder="例：〇月中、急ぎ、相談したい　など"></textarea>
         </div>
       </section>
 
