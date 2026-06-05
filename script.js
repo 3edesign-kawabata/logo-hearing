@@ -176,6 +176,17 @@
     r.addEventListener('change', updateBrandColor);
   });
 
+  // === textarea 自動高さ調整 ===
+  function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = el.scrollHeight + 'px';
+  }
+
+  document.querySelectorAll('textarea').forEach(function (el) {
+    el.addEventListener('input', function () { autoResize(this); });
+    autoResize(el);
+  });
+
   // === Initial state ===
   updatePurpose();
   updateBrandColor();
