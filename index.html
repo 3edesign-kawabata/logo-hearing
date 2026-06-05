@@ -35,6 +35,57 @@
           <label for="meeting_date">対面日</label>
           <input type="date" id="meeting_date" name="meeting_date">
         </div>
+        <div class="field">
+          <label>支払いタイミング</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="payment_timing" value="on_delivery">
+              <span>納品時</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="payment_timing" value="before_start">
+              <span>着手前</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="payment_timing" value="consult">
+              <span>要相談</span>
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <label>支払い方法</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="payment_method" value="cash">
+              <span>現金</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="payment_method" value="transfer">
+              <span>銀行振込</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="payment_method" value="consult">
+              <span>要相談</span>
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <label>仕様書</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="spec_doc" value="needed">
+              <span>必要（+50,000円〜）</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="spec_doc" value="not_needed">
+              <span>不要</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="spec_doc" value="consult">
+              <span>要相談</span>
+            </label>
+          </div>
+        </div>
       </section>
 
       <!-- 制作の目的 -->
@@ -156,6 +207,10 @@
           <label class="checkbox-label">
             <input type="checkbox" name="usage" value="print">
             <span>印刷物</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="usage" value="new_business">
+            <span>新規事業</span>
           </label>
           <label class="checkbox-label">
             <input type="checkbox" name="usage" value="other" id="usage-other">

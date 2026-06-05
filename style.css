@@ -394,8 +394,8 @@ input[type="color"] {
    =========================== */
 @media (max-width: 768px) {
   .site-header {
-    padding: 36px 0 28px;
-    margin-bottom: 20px;
+    padding: 32px 0 24px;
+    margin-bottom: 16px;
   }
 
   .header-inner {
@@ -403,54 +403,76 @@ input[type="color"] {
   }
 
   .site-header h1 {
-    font-size: 20px;
+    font-size: 19px;
     letter-spacing: 0.04em;
   }
 
   .container {
-    padding: 0 12px 72px;
+    padding: 0 10px 64px;
   }
 
   .form-section {
     border-radius: 6px;
-    padding: 24px 20px;
-    margin-bottom: 12px;
+    padding: 20px 16px;
+    margin-bottom: 10px;
   }
 
   .section-title {
     font-size: 13px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
+  /* すべての入力欄を横幅いっぱいに */
   .field--short {
     max-width: 100%;
   }
 
-  input[type="text"],
   input[type="date"],
   textarea {
-    font-size: 16px;
-    padding: 12px 14px;
+    width: 100%;
+    font-size: 16px; /* iOS ズーム防止 */
+    padding: 12px 13px;
   }
 
+  input[type="color"] {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* カラーピッカーを縦並びに */
+  .color-pickers {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* ラジオ・チェックボックスのタップ領域を確保 */
   .radio-label,
   .checkbox-label {
     font-size: 16px;
     padding: 10px 12px;
+    min-height: 44px;
   }
 
+  /* 予算金額 */
+  .budget-display {
+    padding: 16px 18px;
+  }
+
+  .budget-amount {
+    font-size: 15px;
+  }
+
+  /* PDFボタン */
   .print-action {
-    padding: 32px 0;
+    padding: 28px 0;
   }
 
   #pdf-btn {
     width: 100%;
     font-size: 16px;
     padding: 16px 0;
-  }
-
-  .budget-amount {
-    font-size: 19px;
+    border-radius: 6px;
   }
 }
 
