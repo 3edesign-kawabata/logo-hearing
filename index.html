@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロゴデザイン ヒアリングシート | 3e design</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="brand">3e design</span>
+      <h1>ロゴデザイン ヒアリングシート</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <form id="hearing-form" autocomplete="off">
+
+      <!-- 基本情報 -->
+      <section class="form-section">
+        <h2 class="section-title">基本情報</h2>
+        <div class="field">
+          <label for="company">会社名・屋号・店名</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="field">
+          <label for="contact">担当者名</label>
+          <input type="text" id="contact" name="contact">
+        </div>
+        <div class="field">
+          <label for="business">業種・事業内容</label>
+          <input type="text" id="business" name="business">
+        </div>
+        <div class="field field--short">
+          <label for="meeting_date">対面日</label>
+          <input type="date" id="meeting_date" name="meeting_date">
+        </div>
+      </section>
+
+      <!-- 制作の目的 -->
+      <section class="form-section">
+        <h2 class="section-title">制作の目的</h2>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="purpose" value="new">
+            <span>ロゴ新規制作</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="purpose" value="renewal">
+            <span>リニューアル</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="purpose" value="expansion">
+            <span>展開用</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="purpose" value="trace">
+            <span>トレース・再構築</span>
+          </label>
+        </div>
+
+        <!-- トレース専用項目 -->
+        <div id="trace-fields" class="sub-section hidden">
+          <div class="field">
+            <label>元データの状態</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="original_data" value="image_only">
+                <span>画像のみ</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="original_data" value="ai_data">
+                <span>AIデータあり</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="original_data" value="handwritten">
+                <span>手書き原稿</span>
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label>トレースの精度希望</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="trace_precision" value="simple">
+                <span>簡易</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="trace_precision" value="precise">
+                <span>精密</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="trace_precision" value="consult">
+                <span>要相談</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ロゴの構成 -->
+      <section class="form-section" id="logo-structure-section">
+        <h2 class="section-title">ロゴの構成</h2>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="logo_type" value="logotype">
+            <span>ロゴタイプのみ</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="logo_type" value="symbol">
+            <span>シンボルマーク単体</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="logo_type" value="symbol_logotype">
+            <span>シンボルマーク＋ロゴタイプ</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="logo_type" value="corporate">
+            <span>コーポレートロゴ</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="logo_type" value="undecided">
+            <span>まだ決まっていない</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- 予算の目安 -->
+      <section class="form-section">
+        <h2 class="section-title">予算の目安（参考）</h2>
+        <div id="budget-display" class="budget-display">
+          <span class="budget-placeholder">制作の目的とロゴの構成を選択すると参考金額が表示されます</span>
+        </div>
+      </section>
+
+      <!-- 使用用途 -->
+      <section class="form-section">
+        <h2 class="section-title">使用用途</h2>
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" name="usage" value="business_card">
+            <span>名刺</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="usage" value="signage">
+            <span>看板</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="usage" value="web">
+            <span>Web</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="usage" value="sns">
+            <span>SNS</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="usage" value="print">
+            <span>印刷物</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="usage" value="other">
+            <span>その他</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- 納期の希望 -->
+      <section class="form-section">
+        <h2 class="section-title">納期の希望</h2>
+        <div class="field field--short">
+          <input type="text" name="deadline" placeholder="例：2026年8月末">
+        </div>
+      </section>
+
+      <!-- デザインの方向性 -->
+      <section class="form-section">
+        <h2 class="section-title">デザインの方向性</h2>
+        <div class="field">
+          <label for="color_preference">好きな色・避けたい色</label>
+          <input type="text" id="color_preference" name="color_preference">
+        </div>
+        <div class="field">
+          <label for="image_words">イメージワード</label>
+          <input type="text" id="image_words" name="image_words" placeholder="例：シンプル、信頼感、やわらかい">
+        </div>
+        <div class="field">
+          <label for="reference">参考にしたいロゴや雰囲気（URL・フリーテキスト）</label>
+          <input type="text" id="reference" name="reference">
+        </div>
+        <div class="field">
+          <label for="competitor">競合・同業他社のロゴ（似てほしくない基準として）</label>
+          <input type="text" id="competitor" name="competitor">
+        </div>
+        <div class="field">
+          <label for="avoid_design">避けたいデザインの傾向</label>
+          <input type="text" id="avoid_design" name="avoid_design">
+        </div>
+      </section>
+
+      <!-- ターゲット・想い -->
+      <section class="form-section">
+        <h2 class="section-title">ターゲット・想い</h2>
+        <div class="field">
+          <label for="target">誰に届けたいか</label>
+          <input type="text" id="target" name="target">
+        </div>
+        <div class="field">
+          <label for="impression">ロゴを見た人にどう感じてほしいか</label>
+          <input type="text" id="impression" name="impression" placeholder="例：信頼感、親しみやすさ、高級感">
+        </div>
+        <div class="field">
+          <label for="values">大切にしていること・伝えたいこと</label>
+          <input type="text" id="values" name="values">
+        </div>
+        <div class="field">
+          <label for="meaning">ロゴに込めたい意味やこだわり</label>
+          <input type="text" id="meaning" name="meaning">
+        </div>
+      </section>
+
+      <!-- その他 -->
+      <section class="form-section">
+        <h2 class="section-title">その他</h2>
+        <div class="field">
+          <label>既存のCI・ブランドカラーの有無</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="existing_ci" value="yes">
+              <span>あり</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="existing_ci" value="no">
+              <span>なし</span>
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="notes">備考・自由記入</label>
+          <textarea id="notes" name="notes" rows="6"></textarea>
+        </div>
+      </section>
+
+    </form>
+
+    <!-- PDFボタン -->
+    <div class="print-action no-print">
+      <button type="button" id="pdf-btn" onclick="window.print()">PDFで保存する</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
