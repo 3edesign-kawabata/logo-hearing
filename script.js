@@ -89,5 +89,12 @@
     usageOtherField.classList.toggle('hidden', !this.checked);
   });
 
+  // 対面日のデフォルトを今日に設定
+  const meetingDate = document.getElementById('meeting_date');
+  if (meetingDate && !meetingDate.value) {
+    const today = new Date().toISOString().split('T')[0];
+    meetingDate.value = today;
+  }
+
   updateVisibility();
 })();

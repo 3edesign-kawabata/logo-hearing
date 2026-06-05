@@ -159,12 +159,54 @@ textarea::placeholder {
 textarea {
   resize: vertical;
   line-height: 1.65;
-  min-height: 80px;
+  min-height: 44px;
 }
+
+/* Textarea height variants */
+textarea.h-sm { height: 44px;  min-height: 44px; }
+textarea.h-md { height: 72px;  min-height: 72px; }
+textarea.h-lg { height: 100px; min-height: 100px; }
+textarea.h-xl { height: 160px; min-height: 160px; }
 
 .usage-other-field {
   margin-top: 12px;
   padding-left: 4px;
+}
+
+/* ===========================
+   Color Pickers
+   =========================== */
+.color-pickers {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.color-picker-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-picker-item label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-sub);
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+input[type="color"] {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 3px;
+  cursor: pointer;
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 /* ===========================
@@ -516,9 +558,20 @@ textarea {
     border: 0.5pt solid #bbb !important;
     padding: 5pt 7pt;
     font-size: 10pt;
-    min-height: 50pt;
+    min-height: 16pt;
     border-radius: 1pt;
     box-shadow: none !important;
+    height: auto !important;
+  }
+
+  textarea.h-sm { min-height: 16pt; }
+  textarea.h-md { min-height: 26pt; }
+  textarea.h-lg { min-height: 36pt; }
+  textarea.h-xl { min-height: 56pt; }
+
+  /* Color pickers: hide swatch, keep label for reference */
+  .color-pickers {
+    display: none;
   }
 
   /* Radio / Checkbox */

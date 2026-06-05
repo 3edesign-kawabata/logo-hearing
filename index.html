@@ -21,15 +21,15 @@
         <h2 class="section-title">基本情報</h2>
         <div class="field">
           <label for="company">会社名・屋号・店名</label>
-          <textarea id="company" name="company"></textarea>
+          <textarea id="company" name="company" rows="1" class="h-sm"></textarea>
         </div>
         <div class="field">
           <label for="contact">担当者名</label>
-          <textarea id="contact" name="contact"></textarea>
+          <textarea id="contact" name="contact" rows="1" class="h-sm"></textarea>
         </div>
         <div class="field">
           <label for="business">業種・事業内容</label>
-          <textarea id="business" name="business"></textarea>
+          <textarea id="business" name="business" rows="2" class="h-md"></textarea>
         </div>
         <div class="field field--short">
           <label for="meeting_date">対面日</label>
@@ -163,7 +163,7 @@
           </label>
         </div>
         <div id="usage-other-field" class="field usage-other-field hidden">
-          <textarea name="usage_other_text" placeholder="具体的な用途を入力してください"></textarea>
+          <textarea name="usage_other_text" rows="2" class="h-md" placeholder="具体的な用途を入力してください"></textarea>
         </div>
       </section>
 
@@ -171,7 +171,7 @@
       <section class="form-section">
         <h2 class="section-title">納期の希望</h2>
         <div class="field field--short">
-          <textarea name="deadline" placeholder="例：2026年8月末"></textarea>
+          <textarea name="deadline" rows="1" class="h-sm" placeholder="例：2026年8月末"></textarea>
         </div>
       </section>
 
@@ -179,24 +179,34 @@
       <section class="form-section">
         <h2 class="section-title">デザインの方向性</h2>
         <div class="field">
-          <label for="color_preference">好きな色・避けたい色</label>
-          <textarea id="color_preference" name="color_preference"></textarea>
+          <label>好きな色・避けたい色</label>
+          <div class="color-pickers">
+            <div class="color-picker-item">
+              <label for="color_like">好きな色</label>
+              <input type="color" id="color_like" name="color_like" value="#ffffff">
+            </div>
+            <div class="color-picker-item">
+              <label for="color_avoid">避けたい色</label>
+              <input type="color" id="color_avoid" name="color_avoid" value="#ffffff">
+            </div>
+          </div>
+          <textarea id="color_preference" name="color_preference" rows="2" class="h-md" placeholder="補足コメント（色の傾向・ニュアンスなど）"></textarea>
         </div>
         <div class="field">
           <label for="image_words">イメージワード</label>
-          <textarea id="image_words" name="image_words" placeholder="例：シンプル、信頼感、やわらかい"></textarea>
+          <textarea id="image_words" name="image_words" rows="2" class="h-md" placeholder="例：シンプル、信頼感、やわらかい"></textarea>
         </div>
         <div class="field">
           <label for="reference">参考にしたいロゴや雰囲気（URL・フリーテキスト）</label>
-          <textarea id="reference" name="reference"></textarea>
+          <textarea id="reference" name="reference" rows="3" class="h-lg"></textarea>
         </div>
         <div class="field">
           <label for="competitor">競合・同業他社のロゴ（似てほしくない基準として）</label>
-          <textarea id="competitor" name="competitor"></textarea>
+          <textarea id="competitor" name="competitor" rows="3" class="h-lg"></textarea>
         </div>
         <div class="field">
           <label for="avoid_design">避けたいデザインの傾向</label>
-          <textarea id="avoid_design" name="avoid_design"></textarea>
+          <textarea id="avoid_design" name="avoid_design" rows="3" class="h-lg"></textarea>
         </div>
       </section>
 
@@ -205,19 +215,19 @@
         <h2 class="section-title">ターゲット・想い</h2>
         <div class="field">
           <label for="target">誰に届けたいか</label>
-          <textarea id="target" name="target"></textarea>
+          <textarea id="target" name="target" rows="3" class="h-lg"></textarea>
         </div>
         <div class="field">
           <label for="impression">ロゴを見た人にどう感じてほしいか</label>
-          <textarea id="impression" name="impression" placeholder="例：信頼感、親しみやすさ、高級感"></textarea>
+          <textarea id="impression" name="impression" rows="3" class="h-lg" placeholder="例：信頼感、親しみやすさ、高級感"></textarea>
         </div>
         <div class="field">
           <label for="values">大切にしていること・伝えたいこと</label>
-          <textarea id="values" name="values"></textarea>
+          <textarea id="values" name="values" rows="3" class="h-lg"></textarea>
         </div>
         <div class="field">
           <label for="meaning">ロゴに込めたい意味やこだわり</label>
-          <textarea id="meaning" name="meaning"></textarea>
+          <textarea id="meaning" name="meaning" rows="3" class="h-lg"></textarea>
         </div>
       </section>
 
@@ -239,7 +249,7 @@
         </div>
         <div class="field">
           <label for="notes">備考・自由記入</label>
-          <textarea id="notes" name="notes" rows="6"></textarea>
+          <textarea id="notes" name="notes" rows="5" class="h-xl"></textarea>
         </div>
       </section>
 
