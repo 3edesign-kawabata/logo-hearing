@@ -331,6 +331,28 @@ input[type="color"] {
   background: none;
 }
 
+.color-code-input {
+  width: 100px;
+  height: 38px;
+  min-height: 38px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0 10px;
+  font-family: "SF Mono", "Monaco", "Menlo", "Consolas", monospace;
+  font-size: 13px;
+  color: var(--color-text);
+  background: #fff;
+  outline: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: border-color 0.15s;
+}
+
+.color-code-input:focus {
+  border-color: #333;
+}
+
+/* 旧 color-value span（削除済みだが念のため残す） */
 .color-value {
   font-size: 12px;
   color: var(--color-sub);

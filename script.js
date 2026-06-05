@@ -108,13 +108,28 @@
     colorPrefFields.classList.toggle('hidden', value !== 'no_color');
   }
 
-  // === Color hex value display ===
-  document.querySelectorAll('input[type="color"]').forEach(function (input) {
-    var valueSpan = input.parentElement.querySelector('.color-value');
-    if (!valueSpan) return;
-    valueSpan.textContent = input.value.toUpperCase();
-    input.addEventListener('input', function () {
-      valueSpan.textContent = this.value.toUpperCase();
+  // === カラーピッカー ↔ カラーコード入力欄の双方向同期 ===
+  document.querySelectorAll('input[type="color"]').forEach(function (colorInput) {
+    var codeId = colorInput.id.replace('color_', 'code_');
+    var codeInput = document.getElementById(codeId);
+    if (!codeInput) return;
+
+    // カラーピッカー → テキスト入力
+    colorInput.addEventListener('input', function () {
+      codeInput.value = this.value.toUpperCase();
+    });
+
+    // テキスト入力 → カラーピッカー（6桁HEXが完成したとき）
+    codeInput.addEventListener('input', function () {
+      var val = this.value.trim();
+      if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+        colorInput.value = val.toLowerCase();
+      }
+    });
+
+    // フォーカスを外したとき、ピッカーの値で上書きして表示を正規化
+    codeInput.addEventListener('blur', function () {
+      this.value = colorInput.value.toUpperCase();
     });
   });
 
@@ -144,6 +159,16 @@
   if (usageOther) {
     usageOther.addEventListener('change', function () {
       usageOtherField.classList.toggle('hidden', !this.checked);
+    });
+  }
+
+  // === 納品方法「その他」トグル ===
+  var deliveryOther = document.getElementById('delivery-other');
+  var deliveryOtherField = document.getElementById('delivery-other-field');
+
+  if (deliveryOther) {
+    deliveryOther.addEventListener('change', function () {
+      deliveryOtherField.classList.toggle('hidden', !this.checked);
     });
   }
 

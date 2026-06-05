@@ -236,21 +236,21 @@
                 <label for="color_main">メインカラー</label>
                 <div class="color-input-group">
                   <input type="color" id="color_main" name="color_main" value="#cccccc">
-                  <span class="color-value">#CCCCCC</span>
+                  <input type="text" id="code_main" name="code_main" class="color-code-input" value="#CCCCCC" placeholder="#000000" maxlength="7" spellcheck="false">
                 </div>
               </div>
               <div class="color-picker-item">
                 <label for="color_sub">サブカラー</label>
                 <div class="color-input-group">
                   <input type="color" id="color_sub" name="color_sub" value="#cccccc">
-                  <span class="color-value">#CCCCCC</span>
+                  <input type="text" id="code_sub" name="code_sub" class="color-code-input" value="#CCCCCC" placeholder="#000000" maxlength="7" spellcheck="false">
                 </div>
               </div>
               <div class="color-picker-item">
                 <label for="color_accent">アクセントカラー</label>
                 <div class="color-input-group">
                   <input type="color" id="color_accent" name="color_accent" value="#cccccc">
-                  <span class="color-value">#CCCCCC</span>
+                  <input type="text" id="code_accent" name="code_accent" class="color-code-input" value="#CCCCCC" placeholder="#000000" maxlength="7" spellcheck="false">
                 </div>
               </div>
             </div>
@@ -360,6 +360,37 @@
               <input type="radio" name="payment_method" value="consult">
               <span>要相談</span>
             </label>
+          </div>
+        </div>
+        <div class="field">
+          <label>納品方法</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="delivery" value="usb">
+              <span>USB</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="delivery" value="email">
+              <span>メール</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="delivery" value="line">
+              <span>LINE</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="delivery" value="online_storage">
+              <span>ギガファイル便などオンラインストレージ</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="delivery" value="other" id="delivery-other">
+              <span>その他</span>
+            </label>
+          </div>
+          <div id="delivery-other-field" class="sub-section hidden">
+            <div class="field">
+              <label>その他の納品方法</label>
+              <textarea name="delivery_other_text" rows="1" placeholder="具体的な納品方法を入力してください"></textarea>
+            </div>
           </div>
         </div>
       </section>
