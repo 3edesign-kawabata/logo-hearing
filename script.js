@@ -172,6 +172,15 @@
     });
   }
 
+  // === 支払い「要相談」トグル ===
+  var paymentConsultField = document.getElementById('payment-consult-field');
+
+  document.querySelectorAll('input[name="payment"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      paymentConsultField.classList.toggle('hidden', this.value !== 'consult');
+    });
+  });
+
   brandColorRadios.forEach(function (r) {
     r.addEventListener('change', updateBrandColor);
   });

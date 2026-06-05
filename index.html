@@ -329,37 +329,24 @@
       <section class="form-section">
         <h2 class="section-title">支払い</h2>
         <div class="field">
-          <label>支払いタイミング</label>
           <div class="radio-group">
             <label class="radio-label">
-              <input type="radio" name="payment_timing" value="on_delivery">
-              <span>納品時</span>
+              <input type="radio" name="payment" value="cash_on_delivery">
+              <span>納品時現金</span>
             </label>
             <label class="radio-label">
-              <input type="radio" name="payment_timing" value="before_start">
-              <span>着手前</span>
+              <input type="radio" name="payment" value="transfer_first">
+              <span>振込確認後納品</span>
             </label>
             <label class="radio-label">
-              <input type="radio" name="payment_timing" value="consult">
+              <input type="radio" name="payment" value="consult">
               <span>要相談</span>
             </label>
           </div>
-        </div>
-        <div class="field">
-          <label>支払い方法</label>
-          <div class="radio-group">
-            <label class="radio-label">
-              <input type="radio" name="payment_method" value="cash">
-              <span>現金</span>
-            </label>
-            <label class="radio-label">
-              <input type="radio" name="payment_method" value="transfer">
-              <span>銀行振込</span>
-            </label>
-            <label class="radio-label">
-              <input type="radio" name="payment_method" value="consult">
-              <span>要相談</span>
-            </label>
+          <div id="payment-consult-field" class="sub-section hidden">
+            <div class="field">
+              <textarea name="payment_note" rows="1" placeholder="詳細をご記入ください"></textarea>
+            </div>
           </div>
         </div>
         <div class="field">
