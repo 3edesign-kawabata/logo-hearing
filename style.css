@@ -140,6 +140,7 @@ input[type="date"] {
 textarea {
   resize: none;
   line-height: 1.65;
+  min-height: 60px;
 }
 
 textarea:focus,
@@ -582,8 +583,8 @@ input[type="color"] {
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
-    resize: none !important;
     white-space: pre-wrap !important;
+    display: block !important;
   }
 
   .field--short {
