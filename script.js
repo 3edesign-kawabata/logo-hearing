@@ -133,6 +133,72 @@
     });
   });
 
+  // === カラースウォッチグリッド ===
+  var SWATCH_COLORS = [
+    '#000000', '#333333', '#666666', '#999999', '#cccccc', '#ffffff',
+    '#ff0000', '#ff6600', '#ffcc00', '#ffff00', '#99cc00', '#00cc00',
+    '#00cccc', '#0066ff', '#0000ff', '#6600cc', '#cc00cc', '#ff0066',
+    '#ff9999', '#ffcc99', '#ffff99', '#ccff99', '#99ffcc', '#99ccff',
+    '#cc99ff', '#ff99cc', '#c0392b', '#e67e22', '#f1c40f', '#27ae60',
+    '#16a085', '#2980b9', '#8e44ad', '#2c3e50', '#7f8c8d', '#bdc3c7'
+  ];
+
+  document.querySelectorAll('.color-swatch-btn').forEach(function (btn) {
+    var group = btn.closest('.color-input-group');
+    var colorInput = group.querySelector('input[type="color"]');
+    var codeId = colorInput.id.replace('color_', 'code_');
+    var codeInput = document.getElementById(codeId);
+
+    var popup = document.createElement('div');
+    popup.className = 'color-swatch-popup';
+
+    var grid = document.createElement('div');
+    grid.className = 'color-swatch-grid';
+
+    SWATCH_COLORS.forEach(function (color) {
+      var swatch = document.createElement('button');
+      swatch.type = 'button';
+      swatch.className = 'color-swatch-item';
+      swatch.style.background = color;
+      swatch.title = color.toUpperCase();
+      swatch.addEventListener('click', function () {
+        colorInput.value = color;
+        if (codeInput) codeInput.value = color.toUpperCase();
+        grid.querySelectorAll('.color-swatch-item').forEach(function (s) {
+          s.classList.remove('selected');
+        });
+        swatch.classList.add('selected');
+        popup.classList.remove('open');
+      });
+      grid.appendChild(swatch);
+    });
+
+    popup.appendChild(grid);
+    group.appendChild(popup);
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var currentColor = colorInput.value.toUpperCase();
+      grid.querySelectorAll('.color-swatch-item').forEach(function (s) {
+        s.classList.toggle('selected', s.title === currentColor);
+      });
+      document.querySelectorAll('.color-swatch-popup.open').forEach(function (p) {
+        if (p !== popup) p.classList.remove('open');
+      });
+      popup.classList.toggle('open');
+    });
+
+    popup.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  });
+
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.color-swatch-popup.open').forEach(function (p) {
+      p.classList.remove('open');
+    });
+  });
+
   // === 対面日: デフォルト今日 ===
   var meetingDate = document.getElementById('meeting_date');
   if (meetingDate && !meetingDate.value) {
