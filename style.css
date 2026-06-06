@@ -577,6 +577,11 @@ input[type="color"] {
     width: 100% !important;
   }
 
+  textarea {
+    overflow: visible !important;
+    height: auto !important;
+  }
+
   .field--short {
     max-width: 180pt;
   }
