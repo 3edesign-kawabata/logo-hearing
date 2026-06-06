@@ -530,7 +530,7 @@ input[type="color"] {
     page-break-inside: avoid;
   }
 
-  textarea, input {
+  .print-proxy, input {
     page-break-inside: avoid;
   }
 
@@ -566,7 +566,6 @@ input[type="color"] {
     color: #444;
   }
 
-  textarea,
   input[type="date"] {
     border: 0.5pt solid #bbb !important;
     padding: 4pt 6pt;
@@ -578,12 +577,21 @@ input[type="color"] {
     width: 100% !important;
   }
 
-  textarea {
-    overflow: visible !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    white-space: pre-wrap !important;
-    display: block !important;
+  textarea.print-hidden {
+    display: none !important;
+  }
+
+  .print-proxy {
+    border: 0.5pt solid #bbb;
+    padding: 4pt 6pt;
+    font-size: 10pt;
+    width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: inherit;
+    line-height: 1.65;
+    box-sizing: border-box;
+    border-radius: 1pt;
   }
 
   .field--short {
