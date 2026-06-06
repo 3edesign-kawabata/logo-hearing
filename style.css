@@ -525,6 +525,14 @@ input[type="color"] {
     max-width: 100%;
   }
 
+  .card, .section, .field {
+    page-break-inside: avoid;
+  }
+
+  textarea, input {
+    page-break-inside: avoid;
+  }
+
   .form-section {
     background: #fff !important;
     border: 0.5pt solid #ddd !important;
